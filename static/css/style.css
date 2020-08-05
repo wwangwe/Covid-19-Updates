@@ -20,3 +20,7 @@ nav {
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
 }
+::selection{
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.4);
+}
