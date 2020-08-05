@@ -19,7 +19,7 @@
         rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="{% static 'img/favicon.png' %}" />
-    <title>I Am Groot</title>
+    <title>Covid-19-Statistics by Groot-Core</title>
 </head>
 
 <body class="bg-light">
@@ -35,165 +35,37 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="https://github.com/Groot-Core/Covid-19-Analysis">
                         <span class="navbar-brand">Code</span>
-                        <img src="{% static 'img/code-branch-solid.svg' %}" width="30" height="30" alt=""
+                        <img src="{% static 'img/code-branch-solid.svg' %}" width="25" height="25" alt=""
                             loading="lazy">
                     </a>
                 </li>
             </ul>
         </nav>
         <hr>
-        <div class="text-center">
-            <h2>Covid-19-Satistics</h2>
-            <p>Global and local updates and figures of the ever surging pandemic Covid-19</p>
-        </div>
-        <h4 class="text-center">World Wide</h4>
-        <div>
-            <div class="row h-75 justify-content-center align-items-center">
-                <div class="col-sm-4">
-                    <div class="card border-primary mb-4">
-                        <div class="card-header border-primary">
-                            <h6>Total Confirmed</h6>
-                        </div>
-                        <div class="card-body">
-                            <p>123456 Cases</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-sm-6">
-                            <div class="card border-success mb-2">
-                                <div class="card-header border-success">
-                                    <h6>TotalRecovered</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>123456 Cases</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card border-danger mb-2">
-                                <div class="card-header border-danger">
-                                    <h6>Total Deaths</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>123456 Cases</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-primary mb-4">
-                        <div class="card-header border-primary">
-                            <h6>New Confirmed</h6>
-                        </div>
-                        <div class="card-body">
-                            <p>123456 Cases</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-sm-6">
-                            <div class="card border-success mb-2">
-                                <div class="card-header border-success">
-                                    <h6>New Recovered</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>123456 Cases</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card border-danger mb-2">
-                                <div class="card-header border-danger">
-                                    <h6>New Deaths</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>123456 Cases</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        {% block content %}{% endblock content %}
+        <footer class="footer">
+            <div class="container text-center">
+                <p>
+                    <span>Created by</span><br>
+                    <span class="text-secondary float-left">Gilbert</span>
+                    <span class="text-secondary">Alice</span>
+                    <span class="text-secondary float-right">Timothy</span>
+                </p>
+                <p><b>@Groot-Core</b></p>
+                <hr>
             </div>
-        </div>
-    </div>
-    <h4 class="text-center">Country Wide</h4>
-    <h5 class="text-center">Numbers as at {Date}</h5>
-    <div class="table-responsive p-2">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Country</th>
-                    <th scope="col">Total Confirmed</th>
-                    <th scope="col">Total Recovered</th>
-                    <th scope="col">Total Deaths</th>
-                    <th scope="col">New Confirmed</th>
-                    <th scope="col">New Recovered</th>
-                    <th scope="col">New Deaths</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <footer class="footer">
-        <div class="container text-center">
-            <p>
-                <span>Created by</span><br>
-                <span class="text-secondary float-left">Gilbert</span>
-                <span class="text-secondary">Alice</span>
-                <span class="text-secondary float-right">Timothy</span>
-            </p>
-            <p><b>@Groot-Core</b></p>
-            <hr>
-        </div>
-    </footer>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-    </script>
+        </footer>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
