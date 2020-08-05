@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+
+<div class="text-center">
+    <h2>Covid-19-Statistics</h2>
+    <p>Global and local updates and figures of the ever surging pandemic Covid-19</p>
+</div>
+<h4 class="text-center">World Wide</h4>
+<div>
+    <div class="row h-75 justify-content-center align-items-center">
+        <div class="col-sm-5">
+            <div class="card border-primary mb-4">
+                <div class="card-header border-primary">
+                    <h6>Total Confirmed</h6>
+                </div>
+                <div class="card-body">
+                    <p>{{ dict.total_confirmed|intword|intcomma }} Cases </p>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-sm-6">
+                    <div class="card border-success mb-2">
+                        <div class="card-header border-success">
+                            <h6>Total Recovered</h6>
+                        </div>
+                        <div class="card-body">
+                            <p>{{dict.total_recovered|intword|intcomma}} Cases</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card border-danger mb-2">
+                        <div class="card-header border-danger">
+                            <h6>Total Deaths</h6>
+                        </div>
+                        <div class="card-body">
+                            <p>{{dict.total_deaths|intword|intcomma}} Cases</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="card border-primary mb-4">
+                <div class="card-header border-primary">
+                    <h6>New Confirmed</h6>
+                </div>
+                <div class="card-body">
+                    <p>{{dict.new_confirmed|intword|intcomma}} Cases</p>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-sm-6">
+                    <div class="card border-success mb-2">
+                        <div class="card-header border-success">
+                            <h6>New Recovered</h6>
+                        </div>
+                        <div class="card-body">
+                            <p>{{dict.new_recovered|intword|intcomma}} Cases</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card border-danger mb-2">
+                        <div class="card-header border-danger">
+                            <h6>New Deaths</h6>
+                        </div>
+                        <div class="card-body">
+                            <p>{{dict.new_deaths|intword|intcomma}} Cases</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
