@@ -7,6 +7,9 @@
     <h2>Covid-19-Statistics</h2>
     <p>Global and local updates and figures of the ever surging pandemic Covid-19</p>
 </div>
+{% if error == True %}
+    <h1 class="text-center text-danger">{{error_msg}}</h1>
+{% else %}
 <h4 class="text-center">World Wide</h4>
 <div>
     <div class="row h-75 justify-content-center align-items-center">
@@ -76,5 +79,31 @@
         </div>
     </div>
 </div>
-
+<h4 class="text-center">Country Wide</h4>
+<h5 class="text-center">Numbers as of {{dict.date}}</h5>
+<div class="table-responsive p-2">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                {% for col in columns %}
+                <th scope="col">{{col}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{row.Countries}}</td>
+                <td>{{row.TotalCases|intcomma}}</td>
+                <td>{{row.NewCases|intcomma}}</td>
+                <td>{{row.TotalDeaths|intcomma}}</td>
+                <td>{{row.NewDeaths|intcomma}}</td>
+                <td>{{row.TotalRecoveries|intcomma}}</td>
+                <td>{{row.NewRecoveries|intcomma}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
 {% endblock content %}
