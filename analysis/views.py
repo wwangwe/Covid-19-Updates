@@ -1,33 +1,35 @@
 from django.shortcuts import render
 
 import urllib.request
-import pandas as pd
 import json
+import datetime
 
 def summary(request):
     url = 'https://api.covid19api.com/summary'
     try:
         json_data = urllib.request.urlopen(url)
         data = json.load(json_data)
-        world = data['Global']
-        date = data['Date']
 
-        total_confirmed = world['TotalConfirmed']
-        total_recovered = world['TotalRecovered']
-        total_deaths = world['TotalDeaths']
-        new_confirmed = world['NewConfirmed']
-        new_recovered = world['NewRecovered']
-        new_deaths = world['NewDeaths']
+        string = data['Date']
+        date_obj = datetime.datetime.strptime(string, '%Y-%m-%dT%H:%M:%SZ')
+        date = date_obj.strftime('%d-%B-%Y')
+        time = date_obj.strftime('%H:%M:%S %p')
+
+        world = data['Global']
+        countries = data['Countries']
+        columns = [
+            'Countries', 'Total Cases', 'New Cases', 'Total Deaths', 
+            'New Deaths', 'Total Recoveries', 'New Recoveries'
+        ]
 
         dictionary = {
             'date':date,
-            'total_confirmed':total_confirmed, 
-            'total_recovered':total_recovered, 
-            'total_deaths':total_deaths,
-            'new_confirmed':new_confirmed, 
-            'new_recovered':new_recovered, 
-            'new_deaths':new_deaths
-        }
+            'time':time,
+            'world':world,
+            'countries':countries,
+            'columns':columns
+            }
+
         return dictionary
 
     except Exception as e:
@@ -36,7 +38,5 @@ def summary(request):
         return error, msg
     
 def index(request):
-    context = {
-        'dict':summary(request)
-    }
+    context = summary(request)
     return render(request, 'analysis/index.html', context)
