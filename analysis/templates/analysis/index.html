@@ -11,6 +11,7 @@
     <h1 class="text-center text-danger">{{error_msg}}</h1>
 {% else %}
 <h4 class="text-center">World Wide</h4>
+<h6 class="text-center"> Updated on {{date}} at {{time}}</h6>
 <div>
     <div class="row h-75 justify-content-center align-items-center">
         <div class="col-sm-5">
@@ -19,7 +20,7 @@
                     <h6>Total Confirmed</h6>
                 </div>
                 <div class="card-body">
-                    <p>{{ dict.total_confirmed|intword|intcomma }} Cases </p>
+                    <p>{{ world.TotalConfirmed|intword|intcomma }} Cases </p>
                 </div>
             </div>
             <div class="row justify-content-center align-items-center">
@@ -29,7 +30,7 @@
                             <h6>Total Recovered</h6>
                         </div>
                         <div class="card-body">
-                            <p>{{dict.total_recovered|intword|intcomma}} Cases</p>
+                            <p>{{world.TotalRecovered|intword|intcomma}} Cases</p>
                         </div>
                     </div>
                 </div>
@@ -39,7 +40,7 @@
                             <h6>Total Deaths</h6>
                         </div>
                         <div class="card-body">
-                            <p>{{dict.total_deaths|intword|intcomma}} Cases</p>
+                            <p>{{world.TotalDeaths|intword|intcomma}} Cases</p>
                         </div>
                     </div>
                 </div>
@@ -51,7 +52,7 @@
                     <h6>New Confirmed</h6>
                 </div>
                 <div class="card-body">
-                    <p>{{dict.new_confirmed|intword|intcomma}} Cases</p>
+                    <p>{{world.NewConfirmed|intword|intcomma}} Cases</p>
                 </div>
             </div>
             <div class="row justify-content-center align-items-center">
@@ -61,7 +62,7 @@
                             <h6>New Recovered</h6>
                         </div>
                         <div class="card-body">
-                            <p>{{dict.new_recovered|intword|intcomma}} Cases</p>
+                            <p>{{world.NewRecovered|intword|intcomma}} Cases</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +72,7 @@
                             <h6>New Deaths</h6>
                         </div>
                         <div class="card-body">
-                            <p>{{dict.new_deaths|intword|intcomma}} Cases</p>
+                            <p>{{world.NewDeaths|intword|intcomma}} Cases</p>
                         </div>
                     </div>
                 </div>
@@ -80,7 +81,6 @@
     </div>
 </div>
 <h4 class="text-center">Country Wide</h4>
-<h5 class="text-center">Numbers as of {{dict.date}}</h5>
 <div class="table-responsive p-2">
     <table class="table table-bordered">
         <thead>
@@ -91,15 +91,15 @@
             </tr>
         </thead>
         <tbody>
-            {% for row in rows %}
+            {% for country in countries %}
             <tr>
-                <td>{{row.Countries}}</td>
-                <td>{{row.TotalCases|intcomma}}</td>
-                <td>{{row.NewCases|intcomma}}</td>
-                <td>{{row.TotalDeaths|intcomma}}</td>
-                <td>{{row.NewDeaths|intcomma}}</td>
-                <td>{{row.TotalRecoveries|intcomma}}</td>
-                <td>{{row.NewRecoveries|intcomma}}</td>
+                <td>{{country.Country}}</td>
+                <td>{{country.TotalConfirmed|intcomma}}</td>
+                <td>{{country.NewConfirmed|intcomma}}</td>
+                <td>{{country.TotalDeaths|intcomma}}</td>
+                <td>{{country.NewDeaths|intcomma}}</td>
+                <td>{{country.TotalRecovered|intcomma}}</td>
+                <td>{{country.NewRecovered|intcomma}}</td>
             </tr>
             {% endfor %}
         </tbody>
