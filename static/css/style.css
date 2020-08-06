@@ -6,7 +6,7 @@ body {
 html,
 body,
 p {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif !important;
     font-weight: 400;
 }
 
