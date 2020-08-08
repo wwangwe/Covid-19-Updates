@@ -8,7 +8,7 @@
     <p>Global and local updates and figures of the ever surging pandemic Covid-19</p>
 </div>
 {% if error == True %}
-    <h1 class="text-center text-danger">{{error_msg}}</h1>
+<h1 class="text-center text-danger">{{error_msg}}</h1>
 {% else %}
 <h4 class="text-center">World Wide</h4>
 <h6 class="text-center"> Updated on {{date}} at {{time}}</h6>
@@ -81,8 +81,8 @@
     </div>
 </div>
 <h4 class="text-center">Country Wide</h4>
-<div class="table-responsive p-2">
-    <table class="table table-bordered">
+<div class="p-2">
+    <table class="table">
         <thead>
             <tr>
                 {% for col in columns %}

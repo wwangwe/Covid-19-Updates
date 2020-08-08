@@ -1,4 +1,5 @@
 @import url('//fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+
 html,
 body {
     height: 100%;
@@ -16,12 +17,31 @@ nav {
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
 }
-::selection{
+
+::selection {
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.navbar-brand{
+.navbar-brand {
     font-family: 'Quicksand', sans-serif !important;
     font-weight: 600;
+}
+
+table {
+    text-align: left;
+    position: relative;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.25rem;
+}
+
+th {
+    background: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 }
