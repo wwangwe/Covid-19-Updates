@@ -26,7 +26,7 @@ SECRET_KEY = secret_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['grootcovid.herokuapp.com',]
+ALLOWED_HOSTS = ['grootcovid.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -125,4 +125,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
