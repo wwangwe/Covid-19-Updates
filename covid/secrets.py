@@ -1,0 +1,1 @@
+secret_key = 'eiljrnfdslakvjnj5783qerui39rqeufin39rqeupidn'
