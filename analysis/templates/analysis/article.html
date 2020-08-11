@@ -10,7 +10,7 @@
         <p>Nothing to Show! Please click <a href="{{link}}" target="_blank" rel="noopener noreferrer">here</a> to read
             the article. </p>
         {% else %}
-        <h2> <b>{{heading|title}}</b> </h2>
+        <h5> <b>{{heading|title}}</b> </h5>
         <img src="{{image}}" class="img-fluid rounded" alt="...">
         <br>
         <small class="text-muted"> {{caption}} <br> {{time}} </small>
@@ -18,6 +18,11 @@
     </div>
     <p> {{description}} </p>
     {% endif %}
-
 </div>
+<div class="text-center p-4">
+    <small class="text-muted">
+      <b>Credits: </b> <a href="https://www.aljazeera.com/topics/events/coronavirus-outbreak.html" target="_blank"
+        rel="noopener noreferrer">Aljazeera News</a>
+    </small>
+  </div>
 {% endblock content %}
