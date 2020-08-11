@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+<div class="container">
+  <div class="text-center">
+    <h2>{{title|title}}</h2>
+    <p>News and Updates from around the world about Coronavirus and other matters related to and affecting the
+      pandemic.</p>
+    <hr>
+  </div>
+  <div class="row">
+    {% for report in news %}
+    <div class="col-sm-4 mb-3">
+      <div class="card">
+        <img src="{{report.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"> {{report.header}} </h5>
+          <p class="card-text"> {{report.description}} </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"> {{report.time|naturaltime}} </small>
+          <a href="#" class="float-right card-link">Read &#62;&#62;&#62;</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="text-center p-4">
+  <small class="text-muted">
+    <b>Credits: </b> <a href="https://www.aljazeera.com/topics/events/coronavirus-outbreak.html" target="_blank"
+      rel="noopener noreferrer">Aljazeera News</a>
+  </small>
+</div>
+{% endblock content %}
