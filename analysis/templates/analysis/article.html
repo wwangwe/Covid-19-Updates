@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %} {{title}} {% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center">
+        {% if error == True %}
+        <p>Nothing to Show! Please click <a href="{{link}}" target="_blank" rel="noopener noreferrer">here</a> to read
+            the article. </p>
+        {% else %}
+        <h2> <b>{{heading|title}}</b> </h2>
+        <img src="{{image}}" class="img-fluid rounded" alt="...">
+        <br>
+        <small class="text-muted"> {{caption}} <br> {{time}} </small>
+        <br>
+    </div>
+    <p> {{description}} </p>
+    {% endif %}
+
+</div>
+{% endblock content %}
