@@ -49,7 +49,7 @@ def news(request):
     url = "https://www.aljazeera.com/topics/events/coronavirus-outbreak.html"
 
     response = requests.get(url = url, headers = header)
-    soup = BeautifulSoup(response.text)
+    soup = BeautifulSoup(response.text, 'html.parser')
     top_title = soup.find('a', 'topics-title').text
     news = soup.find_all('div', 'topics-sec-item')
 
