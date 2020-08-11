@@ -24,7 +24,7 @@ from covid.secrets import secret_key
 SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['grootcovid.herokuapp.com', '127.0.0.1']
 
