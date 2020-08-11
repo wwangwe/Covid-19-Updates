@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from datetime import datetime
 
 import urllib.request
@@ -57,22 +57,53 @@ def news(request):
     descriptions = []
     times = []
     images = []
+    links = []
 
     for item in news:
         header = item.find('h2', 'topics-sec-item-head').text
         description = item.find('p', 'topics-sec-item-p').text
         image = item.find('img', 'img-responsive')['data-src']
         time = datetime.strptime(item.find('time').text, '%d %b %Y %H:%M GMT')
+        link = item.find_all('a')[1]['href']
 
         headers.append(header)
         descriptions.append(description)
         images.append('https://www.aljazeera.com' + image)
+        links.append(link.replace('/', '-', 4).replace('.html', ''))
         times.append(time)
 
-    news = [{'header':header, 'description':description, 'image':image, 'time':time} for header, description, image, time in zip(headers, descriptions, images, times)]
+    news = [{'header':header, 'description':description, 'image':image, 'link':link, 'time':time} for header, description, image, link, time in zip(headers, descriptions, images, links, times)]
     context = {
         'title':top_title,
         'news':news,
     }
 
     return render(request, 'analysis/news.html', context)
+
+def crawl(url):
+    url = url.replace('-', '/', 4)
+    link = f'https://www.aljazeera.com{url}.html'
+    header = ({'User-Agent':
+           'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'})
+    response = requests.get(url = link, headers = header)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    try:
+        title = soup.find('h1', 'post-title').text
+        heading = soup.find('p', 'article-heading-des').text
+        time = datetime.strptime(soup.find('time').text, '%d %b %Y %H:%M GMT')
+        image = 'https://www.aljazeera.com'+soup.find('img', 'main-article-media-img')['src']
+        caption = soup.find('figcaption').text
+        description = soup.find('div', 'article-p-wrapper').text
+
+        article = {
+            'title':title,'heading':heading,'time':time, 'image': image, 'caption':caption,'description':description
+        }
+        return article
+    except Exception as e:
+        print(e)
+        return {'error':True, 'link':link}
+
+def article(request, url):
+    context = crawl(url)
+    return render(request, 'analysis/article.html', context)
