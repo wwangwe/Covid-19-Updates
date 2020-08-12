@@ -4,89 +4,28 @@
 {% block title %} Covid-19-Updates by Groot-Core {% endblock title %}
 
 {% block content %}
-<script src="https://public.flourish.studio/resources/embed.js"></script>
 
 <div class="text-center">
     <h2>Covid-19-Statistics</h2>
     <p>Global and local updates and figures of the ever surging pandemic Covid-19</p>
 </div>
-<div class="flourish-embed flourish-chart" data-src="story/230085"></div>
+<style>
+    iframe {
+        width: 100%;
+        height: 600px;
+        border: none !important;
+    }
+</style>
+<iframe
+    src="https://ourworldindata.org/coronavirus-data-explorer?zoomToSelection=true&country=OWID_WRL~Africa~Europe~Asia~SouthAmerica~NorthAmerica~Oceania&casesMetric=true&interval=total&hideControls=true&smoothing=0&pickerMetric=location&pickerSort=asc"
+    loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+    <small class="text-muted float-right"> Use the tabs below the chart to navigate to different visualizations. </small>
 {% if error == True %}
 <h1 class="text-center text-danger">{{msg}}</h1>
 {% else %}
-<h4 class="text-center">World Wide</h4>
+<hr>
+<h4 class="text-center">Global Charts</h4>
 <h6 class="text-center"> Updated on {{date}} at {{time}}</h6>
-<div>
-    <div class="row h-75 justify-content-center align-items-center">
-        <div class="col-sm-5">
-            <div class="card border-primary mb-4">
-                <div class="card-header border-primary">
-                    <h6>Total Confirmed</h6>
-                </div>
-                <div class="card-body">
-                    <p>{{ world.TotalConfirmed|intword|intcomma }} Cases </p>
-                </div>
-            </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-sm-6">
-                    <div class="card border-success mb-2">
-                        <div class="card-header border-success">
-                            <h6>Total Recovered</h6>
-                        </div>
-                        <div class="card-body">
-                            <p>{{world.TotalRecovered|intword|intcomma}} Cases</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card border-danger mb-2">
-                        <div class="card-header border-danger">
-                            <h6>Total Deaths</h6>
-                        </div>
-                        <div class="card-body">
-                            <p>{{world.TotalDeaths|intword|intcomma}} Cases</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-5">
-            <div class="card border-primary mb-4">
-                <div class="card-header border-primary">
-                    <h6>New Confirmed</h6>
-                </div>
-                <div class="card-body">
-                    <p>{{world.NewConfirmed|intword|intcomma}} Cases</p>
-                </div>
-            </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-sm-6">
-                    <div class="card border-success mb-2">
-                        <div class="card-header border-success">
-                            <h6>New Recovered</h6>
-                        </div>
-                        <div class="card-body">
-                            <p>{{world.NewRecovered|intword|intcomma}} Cases</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card border-danger mb-2">
-                        <div class="card-header border-danger">
-                            <h6>New Deaths</h6>
-                        </div>
-                        <div class="card-body">
-                            <p>{{world.NewDeaths|intword|intcomma}} Cases</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="flourish-embed flourish-chart" data-src="story/230110"></div>
-
-<h4 class="text-center">Country Wide</h4>
 <div class="p-2">
     <table class="table table-responsive">
         <thead>
@@ -97,6 +36,15 @@
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td>World</td>
+                <td>{{world.TotalConfirmed|intword|intcomma}}</td>
+                <td>{{world.NewConfirmed|intword|intcomma}}</td>
+                <td>{{world.TotalDeaths|intword|intcomma}}</td>
+                <td>{{world.NewDeaths|intword|intcomma}}</td>
+                <td>{{world.TotalRecovered|intword|intcomma}}</td>
+                <td>{{world.NewRecovered|intword|intcomma}}</td>
+            </tr>
             {% for country in countries %}
             <tr>
                 <td>{{country.Country}}</td>
