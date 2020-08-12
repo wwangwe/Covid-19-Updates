@@ -4,11 +4,13 @@
 {% block title %} Covid-19-Updates by Groot-Core {% endblock title %}
 
 {% block content %}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
 
 <div class="text-center">
     <h2>Covid-19-Statistics</h2>
     <p>Global and local updates and figures of the ever surging pandemic Covid-19</p>
 </div>
+<div class="flourish-embed flourish-chart" data-src="story/230085"></div>
 {% if error == True %}
 <h1 class="text-center text-danger">{{msg}}</h1>
 {% else %}
@@ -82,6 +84,8 @@
         </div>
     </div>
 </div>
+<div class="flourish-embed flourish-chart" data-src="story/230110"></div>
+
 <h4 class="text-center">Country Wide</h4>
 <div class="p-2">
     <table class="table table-responsive">
