@@ -5,6 +5,13 @@
 
 {% block content %}
 <div class="container">
+  {% if error == True %}
+  <div class="text-center">
+    <h1>Oops!</h1>
+    <h4>Looks like there's a Glich in the Matrix!</h4>
+    <p>Follow <a href="{{link}}" target="_blank" rel="noopener noreferrer">this path</a> to find your true self.</p>
+  </div>
+  {% else %}
   <div class="text-center">
     <h2>{{title|title}}</h2>
     <p>News and Updates from around the world about Coronavirus and other matters related to and affecting the
@@ -28,6 +35,7 @@
     </div>
     {% endfor %}
   </div>
+  {% endif %}
 </div>
 <div class="text-center p-4">
   <small class="text-muted">

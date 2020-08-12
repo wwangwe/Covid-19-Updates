@@ -50,36 +50,43 @@ def news(request):
 
     response = requests.get(url = url, headers = header)
     soup = BeautifulSoup(response.text, 'html.parser')
-    top_title = soup.find('a', 'topics-title').text
-    news = soup.find_all('div', 'topics-sec-item')
+    try:
+        top_title = soup.find('a', 'topics-title').text
+        news = soup.find_all('div', 'topics-sec-item')
 
-    headers = []
-    descriptions = []
-    times = []
-    images = []
-    links = []
+        headers = []
+        descriptions = []
+        times = []
+        images = []
+        links = []
 
-    for item in news:
-        header = item.find('h2', 'topics-sec-item-head').text
-        description = item.find('p', 'topics-sec-item-p').text
-        image = item.find('img', 'img-responsive')['data-src']
-        time = datetime.strptime(item.find('time').text, '%d %b %Y %H:%M GMT')
-        link = item.find_all('a')[1]['href']
+        for item in news:
+            header = item.find('h2', 'topics-sec-item-head').text
+            description = item.find('p', 'topics-sec-item-p').text
+            try:
+                image = item.find('img', 'img-responsive')['data-src']
+            except Exception:
+                image = '/assets/images/AljazeeraLogo.png'
+            time = datetime.strptime(item.find('time').text, '%d %b %Y %H:%M GMT')
+            link = item.find_all('a')[1]['href']
 
-        headers.append(header)
-        descriptions.append(description)
-        images.append('https://www.aljazeera.com' + image)
-        links.append(link.replace('/', '-', 4).replace('.html', ''))
-        times.append(time)
+            headers.append(header)
+            descriptions.append(description)
+            images.append('https://www.aljazeera.com' + image)
+            links.append(link.replace('/', '-', 4).replace('.html', ''))
+            times.append(time)
 
-    news = [{'header':header, 'description':description, 'image':image, 'link':link, 'time':time} for header, description, image, link, time in zip(headers, descriptions, images, links, times)]
-    context = {
-        'title':top_title,
-        'news':news,
-    }
+        news = [{'header':header, 'description':description, 'image':image, 'link':link, 'time':time} for header, description, image, link, time in zip(headers, descriptions, images, links, times)]
+        context = {
+            'title':top_title,
+            'news':news,
+        }
 
-    return render(request, 'analysis/news.html', context)
-
+        return render(request, 'analysis/news.html', context)
+    except Exception as e:
+        print(e)
+        return render(request, 'analysis/news.html', {'error':True, 'link':link})
+        
 def crawl(url):
     url = url.replace('-', '/', 4)
     link = f'https://www.aljazeera.com{url}.html'
