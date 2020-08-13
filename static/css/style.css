@@ -28,20 +28,16 @@ nav {
     font-weight: 600;
 }
 
-table {
-    text-align: left;
-    position: relative;
-    border-collapse: collapse;
+.back-to-top:hover{
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
 }
-
-th,
-td {
-    padding: 0.25rem;
-}
-
-th {
-    background: white;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+.back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    color: #8d8d8d !important;
+    border: 1px solid #8d8d8d !important;
+    border-radius: 5px !important;
+    display: none;
 }
