@@ -3,8 +3,21 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175340594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-175340594-1');
+    </script>
+
     <!-- Required meta tags -->
-    <!-- <meta charset="utf-8"> -->
+    <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="author" content="Timothy Wangwe">
     <meta name="keywords" content="Django, Bootstrap, HTML, CSS, Python">
@@ -41,7 +54,7 @@
         </nav>
         <hr>
         {% block content %}{% endblock content %}
-        <a id="back-to-top" href="#" class="btn back-to-top" role="button">	&uarr;	&uarr;	&uarr; <br> Top</a>
+        <a id="back-to-top" href="#" class="btn back-to-top" role="button"> &uarr; &uarr; &uarr; <br> Top</a>
         <footer class="footer">
             <div class="container text-center">
                 <hr>
