@@ -1,5 +1,7 @@
 # Covid-19-Updates
 
+Deployed on Heroku at grootcovid.herokuapp.com
+
 ## Description
 
 This is a simple web application built on [Django 3](https://docs.djangoproject.com/en/3.1/) and [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/). It helps track the statistics of the Global Pandemic.  
