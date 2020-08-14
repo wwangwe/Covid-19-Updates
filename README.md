@@ -1,6 +1,6 @@
 # Covid-19-Updates
 
-Deployed on Heroku at grootcovid.herokuapp.com
+Deployed on Heroku at [grootcovid.herokuapp.com](https://grootcovid.herokuapp.com)
 
 ## Description
 
