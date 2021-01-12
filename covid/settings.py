@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from typing import cast
+from decouple import Config, Csv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,13 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-from covid.secrets import secret_key
-SECRET_KEY = secret_key
+SECRET_KEY = Config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = Config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['grootcovid.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = Config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Application definition
